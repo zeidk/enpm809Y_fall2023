@@ -1,8 +1,7 @@
 #include <iostream>
 
 int  main(){
-    extern int x;
     // this is a comment
-    std::cout << x;
+    std::cout << "Hello World!\n";
     return 0;
 }
