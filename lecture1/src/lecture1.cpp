@@ -1,7 +1,7 @@
 #include <iostream>
 
-int  main(){
-    // this is a comment
-    std::cout << "Hello World!\n";
-    return 0;
+int main() {
+  // this is a comment
+  std::cout << "hello, world!\n";
+  return 0;
 }
