@@ -11,13 +11,23 @@ void my_function() {
 }
 
 // namespace MyNamespace
-namespace MyNamespace {
-int x{3};
-int y{4};
-}  // end namespace MyNamespace
+// namespace MyNamespace {
+// int x{3};
+// int y{4};
+// }  // end namespace MyNamespace
 
+namespace MyNamespace
+{
+  int cout{1};
+} // end namespace MyNamespace
+using namespace MyNamespace;
+using namespace std;
 
 int main() {
+  // int hex = 0x2A;
+  // int oct = 052;
+  // std::cout << hex << '\n';
+  // std::cout << oct << '\n';
   //----------------------------
   //-- SLIDE 11
   //----------------------------
@@ -31,8 +41,12 @@ int main() {
   //----------------------------
   //-- SLIDE 13
   //----------------------------
+  // int number;
   // int number = 20;
-  // std::cout << number << '\n';
+  // int number2 = 20;
+  // // std::cout << &number << '\n';
+  // std::cout << &number << '\n';
+  // std::cout << &number2 << '\n';
 
   //----------------------------
   //-- SLIDE 18
@@ -50,13 +64,13 @@ int main() {
   // std::cout << a << '\n';  // 0
   // double b{};              // zero-initialized to 0.0
   // std::cout << b << '\n';  // 0
-  // std::cout << std::fixed << std::setprecision(1) << b << std::endl;
+  // std::cout << std::fixed << std::setprecision(2) << b << std::endl;
 
   //----------------------------
   //-- SLIDE 22
   //----------------------------
-  // int number;                   // uninitialized
-  // // std::cout << &number << '\n';
+  // int number{};                   // uninitialized
+  // std::cout << &number << '\n';
   // std::cout << number << '\n';  // garbage data
 
   //----------------------------
@@ -79,16 +93,32 @@ int main() {
 
   // int y{1};
   // std::cout << y << '\n';
-  // y += 2;
+  // y += 2;  // y = y + 2;
   // std::cout << y << '\n';
-  // y = -2;
+  // y =+ 2;
   // std::cout << y << '\n';
 
+  // int x{5}; // x = 5
+  // // int y = x--; //x = x -1
+  // // x = x - 1;
+  // // int y = x;
+  // int y{--x};  // x = x -1
+  // std::cout << x << '\n';
+  // std::cout << y << '\n';
   // int x{5};
+  // int y{};
+  // { y = x--; }
   // int y{--x};
+  // // int y and y = --x;
   // std::cout << x << '\n';
   // std::cout << y << '\n';
 
+  // {
+  //   int x{5};
+  //   // int y{--x};
+  //   std::cout << x << '\n';
+  //   std::cout << y << '\n';
+  // }
   //----------------------------
   //-- SLIDE 27
   //----------------------------
@@ -101,13 +131,18 @@ int main() {
   //----------------------------
   //-- SLIDE 31
   //----------------------------
+
+
+
   // short s{1};
   // int num1 = s;                    // short promoted to int
   // int num2 = 'a';                  // char promoted to int
-  // int num3 = true;                 // bool promoted to int
-  // std::cout << num1 << '\n';       // 1
-  // std::cout << num2 << '\n';       // 97
-  // std::cout << num3 << '\n';       // 1
+  // int num3 = false;
+  // bool b = 0;                     // bool promoted to int
+  // // std::cout << num1 << '\n';       // 1
+  // // std::cout << num2 << '\n';       // 97
+  // // std::cout << num3 << '\n';       // 1
+  // std::cout << std::boolalpha << b << '\n';       // 1
   // std::cout << sizeof(s) << '\n';  // 2
 
   //----------------------------
@@ -125,8 +160,8 @@ int main() {
   //----------------------------
   //-- SLIDE 38
   //----------------------------
-  // // int and long double are on the priority list
-  // // rule1: int converted to long double
+  // int and long double are on the priority list
+  // rule1: int converted to long double
   // int a{4};
   // long double b{3.323223};
   // std::cout << typeid(a + b).name() << ' ' << a + b
@@ -148,7 +183,7 @@ int main() {
   //----------------------------
   //-- SLIDE 39
   //----------------------------
-  // std::cout << 3 / 2 << '\n';
+  // std::cout << 3 / 2.0 << '\n';
 
   //----------------------------
   //-- SLIDE 41
@@ -176,10 +211,11 @@ int main() {
   //-- SLIDE 43
   //----------------------------
   // std::cout << "Enter two integers separated by a space: ";
-  // int a{};             // init variable to hold the first number
-  // double b{};          // init variable to hold the second number
-  // std::cin >> a >> b;  // store inputs in variables a and b
-  // std::cout << "a: " << a << ", b: " << b << '\n';
+  // double a{};             // init variable to hold the first number
+  // int b{};          // init variable to hold the second number
+  // int c{};
+  // std::cin >> a >> b >> c;  
+  // std::cout << "a: " << a << ", b: " << b << ", c: " << c << '\n';
 
   //----------------------------
   //-- SLIDE 47
@@ -202,6 +238,17 @@ int main() {
   // const int a{1};              // a is a compile-time const
   // const int b{input};          // b is a run-time const
   // std::cout << a + b << '\n';  // a + b is a run-time expression
+
+  // {
+  //   {
+  //     {
+  //       int x{1};
+  //       std::cout << x << '\n';
+  //     }
+  //   }
+  // }
+
+  // std::cout << x << '\n';
 
   //----------------------------
   //-- SLIDE 52
@@ -245,5 +292,8 @@ int main() {
   // std::cout << MyNamespace::x << '\n';  // 3
   // std::cout << MyNamespace::y << '\n';  // 4
 
-  
+  //----------------------------
+  //-- SLIDE 68
+  //----------------------------
+  // cout << "Hello World!" << '\n';
 }

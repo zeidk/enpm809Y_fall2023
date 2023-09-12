@@ -207,13 +207,13 @@ int main()
   //------------------//
   // SLIDE 39
   //------------------//
-  // int *p_int{new int{5}}; // allocate memory for an int on the heap
-  // delete p_int;           // free the memory
+  // int *p_int{new int{5}}; // allocate and point to data on the heap
+  // delete p_int;           // free the heap memory
   // int x{2};               // create x is on the stack
-  // p_int = &x;             // reassign p_int to point to x
-  // p_int = new int{3};     // allocate memory for an int on the heap
-  // delete p_int;           // free the memory
-  // p_int = nullptr;        // p_int is null
+  // p_int = &x;             // point to data on the stack
+  // p_int = new int{3};     // allocate and point to data on the heap
+  // delete p_int;           // free the heap memory
+  // p_int = nullptr;        // null pointer
 
   //------------------//
   // SLIDE 40
@@ -309,10 +309,10 @@ int main()
   // SLIDE 52
   //------------------//
   // Allocate memory for two integers
-  // int *p1_int = new int(40);
-  // int *p2_int = new int(50);
+  // int *p1_int{new int{40}};
+  // int *p2_int{new int{50}};
 
-  // p1_int = new int(100);
+  // p1_int = new int{100};
   // delete p2_int;
   // *p2_int = 5;
   // p1_int = p2_int;
