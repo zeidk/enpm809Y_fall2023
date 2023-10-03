@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <string>
 #include <functional>
+#include <iostream>
+#include <string>
+#include <vector>
 
 //----------------------------------------------------------------------
 // -- SLIDE 10
@@ -28,18 +28,18 @@
 //----------------------------------------------------------------------
 // -- SLIDE 11
 //----------------------------------------------------------------------
-// void print_hello(){           
+// void print_hello(){
 //     std::cout << "hello, ";
 //     print_world();
 // }
 
-// void print_world(){           
+// void print_world(){
 //     std::cout << "world\n";
 // }
 
-// int main(){                         
-//     print_hello();            
-//     std::cout << "exit main\n";     
+// int main(){
+//     print_hello();
+//     std::cout << "exit main\n";
 // }
 
 //----------------------------------------------------------------------
@@ -63,7 +63,6 @@
 //   prompt_user();
 // }
 
-
 //----------------------------------------------------------------------
 // -- SLIDE 13
 //----------------------------------------------------------------------
@@ -71,9 +70,9 @@
 // void print_hello();
 // void print_world();
 
-// int main(){                         
-//     print_hello();            
-//     std::cout << "exit main\n";     
+// int main(){
+//     print_hello();
+//     std::cout << "exit main\n";
 // }
 
 //----------------------------------------------------------------------
@@ -81,8 +80,8 @@
 //----------------------------------------------------------------------
 // void modify(int x) {
 //     // implicit: int x{a};
-//     x = x + 10;  // Modifying x will not affect the original value outside this function
-//     std::cout << "Inside function, x = " << x << '\n'; // 15
+//     x = x + 10;  // Modifying x will not affect the original value outside
+//     this function std::cout << "Inside function, x = " << x << '\n'; // 15
 // }
 
 // int main() {
@@ -96,8 +95,8 @@
 //----------------------------------------------------------------------
 // void modify(int &x) {
 //     // implicit: int &x{a};
-//     x = x + 10;  // Modifying x will affect the original value outside this function
-//     std::cout << "Inside function, x = " << x << '\n'; // 15
+//     x = x + 10;  // Modifying x will affect the original value outside this
+//     function std::cout << "Inside function, x = " << x << '\n'; // 15
 // }
 
 // int main() {
@@ -231,7 +230,7 @@
 
 //     std::vector<int> vect2{};
 //     vect2 = create_vector2();
-// }    
+// }
 
 //----------------------------------------------------------------------
 // -- SLIDE 38
@@ -266,7 +265,6 @@
 //     *ptr = 10;
 //     f();            // 10
 // }
-
 
 //----------------------------------------------------------------------
 // -- SLIDE 41
@@ -373,4 +371,170 @@
 //   int z{};
 //   z = g(x, y);
 //   std::cout << z << '\n';
+// }
+
+//----------------------------------------------------------------------
+// -- SLIDE 54
+//----------------------------------------------------------------------
+// int add(int a, int b) { return a + b; }
+// int multiply(int a, int b) { return a * b; }
+
+// void print_hello() { std::cout << "hello\n"; }
+// void print_world() { std::cout << "world\n"; }
+
+// int main()
+// {
+//   std::function<int(int, int)> math_func;
+//   math_func = add;
+//   std::cout << math_func(1, 2) << '\n';
+
+//   math_func = multiply;
+//   std::cout << math_func(2, 3) << '\n';
+
+//   std::function<void()> print_func;
+//   print_func = print_hello;
+//   print_func();
+
+//   print_func = print_world;
+//   print_func();
+// }
+
+//----------------------------------------------------------------------
+// -- SLIDE 57
+//----------------------------------------------------------------------
+// int add(int a, int b) { return a + b; }
+// int multiply(int a, int b) { return a * b; }
+// double divide(double a, double b) { return a / b; }
+
+// int main()
+// {
+//   // declare a function pointer named my_ptr that can point to a function that
+//   // takes two int parameters and returns an int
+//   int (*my_ptr)(int, int);
+
+//   // assign the address of the add function to my_ptr
+//   my_ptr = add;
+//   /*
+//   call add(1, 2) through a pointer to add()
+//   and store the result in result
+//   */
+//   int result{my_ptr(1, 2)};
+//   std::cout << result << '\n';
+
+//   // assign the address of the multiply function to my_ptr
+//   my_ptr = multiply;
+//   /*
+//   call multiply(2, 3) through a pointer to multiply()
+//   and store the result in result
+//   */
+//   result = my_ptr(2, 3);  // call multiply(2, 3) through a pointer
+//   std::cout << result << '\n';
+//   /*
+//   error: cannot convert 'double (*)(double, double)' to 'int (*)(int, int)'
+//   in assignment
+//   */
+//   my_ptr = divide;  
+//   result = my_ptr(5.3, 2.5);
+//   std::cout << result << '\n';
+// }
+
+//----------------------------------------------------------------------
+// -- SLIDE 58
+//----------------------------------------------------------------------
+// int add(int a, int b) { return a + b; }
+
+// // higher-order function
+// int do_math(int a, int b, std::function<int(int, int)> math_func)
+// {
+//   return math_func(a, b);
+// }
+
+// int main()
+// {
+//   // raw function pointer to 'add'
+//   int (*ptr_add)(int, int) = add;
+//   // using std::function to wrap the raw function pointer
+//   std::function<int(int, int)> wrapped_function = ptr_add;
+//   // calling the wrapped function
+//   auto result = do_math(1, 2, wrapped_function);
+//   std::cout << result << '\n';
+// }
+
+//----------------------------------------------------------------------
+// -- SLIDE 62
+//----------------------------------------------------------------------
+
+// int main(){
+// //   []()->void { std::cout << "hello, world\n"; }();
+// // auto print_hello_world = []() { std::cout << "hello, world\n"; };
+// // print_hello_world();
+
+// // std::cout << [](int a, int b)->int { return a + b; }(1, 2) << '\n';
+// // auto sum = [](int a, int b) -> int { return a + b; };
+// // std::cout << sum(1, 2) << '\n';
+
+// int x{10};
+// int y{20};
+// // std::cout << [x, y]() { return x + y; }() << '\n';
+// // auto sum = [x, y]() { return x + y; };
+// // std::cout << sum() << '\n';
+// [=, &y]() { y = 3*x; }();
+// std::cout << y << '\n';
+
+// // auto sum = [x, y]() { return x + y; };
+// // std::cout << sum() << '\n';
+// }
+
+//----------------------------------------------------------------------
+// -- SLIDE 63
+//----------------------------------------------------------------------
+
+// // higher-order function
+// int do_math(int a, int b, const std::function<int(int, int)>& math_func)
+// {
+//   return math_func(a, b);
+// }
+
+// int main()
+// {
+//   // lambda for addition
+//   auto add = [](int a, int b) { return a + b; };
+//   // lambda for multiplication
+//   auto multiply = [](int a, int b) { return a * b; };
+
+//   int result = do_math(1, 2, add);
+//   std::cout << result << '\n';  // 3
+
+//   result = do_math(2, 3, multiply);
+//   std::cout << result << '\n';  // 6
+// }
+
+//----------------------------------------------------------------------
+// -- SLIDE 67
+//----------------------------------------------------------------------
+// long long factorial(int n)
+// {
+//   if (n <= 1)
+//     return 1;                   // Base case: 0! or 1! is 1
+//   return n * factorial(n - 1);  // Recursive call
+// }
+
+// int main()
+// {
+//   int n{};
+//   std::cout << "Enter a number: ";
+//   std::cin >> n;
+//   std::cout << "Factorial of " << n << " is " << factorial(n) << '\n';
+// }
+
+//----------------------------------------------------------------------
+// -- SLIDE 69
+//----------------------------------------------------------------------
+// int main(int argc, char *argv[])
+// {
+//   std::cout << "Number of arguments: " << argc << '\n';
+//   for (int i{0}; i < argc; i++)
+//   {
+//     std::cout << "Argument " << i << ": " << argv[i] << '\n';
+//   }
 // }
