@@ -3,6 +3,6 @@
 
 int main() {
   DemoThis d;
-  d.initialize(5).print_value();  // chaining function calls
+  d.initialize(5).double_value().print_value();  // chaining function calls
 }
 

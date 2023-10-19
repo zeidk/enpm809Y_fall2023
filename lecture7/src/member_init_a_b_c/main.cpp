@@ -2,5 +2,5 @@
 
 int main() {
   B b;
-//   C c;
+  // C c(2);
 }

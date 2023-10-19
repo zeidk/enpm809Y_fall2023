@@ -3,13 +3,13 @@
 
 
 //-- static attribute
-int Counter::count = 0;  // initialization of class attribute
+int DemoStaticAttribute::count = 0;  // initialization of class attribute
 
 int main() {
-  Counter c1;
+  DemoStaticAttribute c1;
   std::cout << "Initial count: " << c1.get_count() << '\n';  // 1
 
-  Counter c2, c3;
+  DemoStaticAttribute c2, c3;
   std::cout << "After creating three objects: " << c2.get_count() << '\n';  // 3
   std::cout << "After creating three objects: " << c3.get_count() << '\n';  // 3
 }

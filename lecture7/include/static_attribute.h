@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
 
-class Counter {
+class DemoStaticAttribute {
  public:
   static int count;  // Declaration of static member variable
-  Counter() { count++; }
+  DemoStaticAttribute() { count++; }
 
   int get_count() {  // Static member function
     return count;

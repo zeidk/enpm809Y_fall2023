@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 
 #include <iostream>
 
@@ -14,7 +13,7 @@ namespace MazeNavigation {
  */
 class MobileRobot {
  private:
-  // Attributes
+  //==========================attributes==========================
   //<! position of the robot
   std::pair<double, double> position_;
   //<! orientation of the robot (in rad)
@@ -25,88 +24,90 @@ class MobileRobot {
   double battery_level_{100.0};
 
  public:
-    /**
-     * @brief Construct a new Mobile Robot object
-     * - first argument: x position
-     * - second argument: y position
-     */
-    MobileRobot() : position_{std::make_pair(0, 0)}, orientation_{0} {
-      std::cout << "default constructor" << '\n';
-    }
+  /**
+   * @brief Construct a new Mobile Robot object
+   * - first argument: x position
+   * - second argument: y position
+   */
+  MobileRobot() : position_{std::make_pair(0, 0)}, orientation_{0} {
+    std::cout << "default constructor" << '\n';
+  }
 
-    /**
-     * @brief Construct a new Mobile Robot object
-     *
-     * @param orientation orientation of the robot (in rad)
-     */
-    MobileRobot(double orientation)
-        : position_{std::make_pair(0, 0)}, orientation_{orientation} {
-      std::cout << "1-arg constructor" << '\n';
-    }
+  /**
+   * @brief Construct a new Mobile Robot object
+   *
+   * @param orientation orientation of the robot (in rad)
+   */
+  MobileRobot(double orientation)
+      : position_{std::make_pair(0, 0)}, orientation_{orientation} {
+    std::cout << "1-arg constructor" << '\n';
+  }
 
-    /**
-     * @brief Construct a new Mobile Robot object
-     *
-     * @param x x coordinate
-     * @param y y coordinate
-     */
-    MobileRobot(double x, double y)
-        : position_{std::make_pair(x, y)}, orientation_{0.0} {
-      std::cout << "2-arg constructor" << '\n';
-    }
+  /**
+   * @brief Construct a new Mobile Robot object
+   *
+   * @param x x coordinate
+   * @param y y coordinate
+   */
+  MobileRobot(double x, double y)
+      : position_{std::make_pair(x, y)}, orientation_{0.0} {
+    std::cout << "2-arg constructor" << '\n';
+  }
 
-    /**
-     * @brief Construct a new Mobile Robot object
-     *
-     * @param x x coordinate
-     * @param y y coordinate
-     * @param orientation orientation of the robot (in rad)
-     */
-    MobileRobot(double x, double y, double orientation)
-        : position_{std::make_pair(x, y)}, orientation_{orientation} {
-      std::cout << "3-arg constructor" << '\n';
-    }
+  /**
+   * @brief Construct a new Mobile Robot object
+   *
+   * @param x x coordinate
+   * @param y y coordinate
+   * @param orientation orientation of the robot (in rad)
+   */
+  MobileRobot(double x, double y, double orientation)
+      : position_{std::make_pair(x, y)}, orientation_{orientation} {
+    std::cout << "3-arg constructor" << '\n';
+  }
 
-//==========================delegating constructor==========================
-//   /**
-//    * @brief Construct a new Mobile Robot object
-//    * - first argument: x position
-//    * - second argument: y position
-//    */
-//   MobileRobot() : MobileRobot(0, 0, 0) {
-//     std::cout << "default constructor" << '\n';
-//   }
+  //==========================delegating constructor==========================
+  // /**
+  //  * @brief Construct a new Mobile Robot object
+  //  * - first argument: x position
+  //  * - second argument: y position
+  //  */
+  // ~MobileRobot() { std::cout << "destructor" << '\n'; }
 
-//   /**
-//    * @brief Construct a new Mobile Robot object
-//    *
-//    * @param orientation orientation of the robot (in rad)
-//    */
-//   MobileRobot(double orientation) : MobileRobot(0, 0, orientation) {
-//     std::cout << "1-arg constructor" << '\n';
-//   }
+  // MobileRobot() : MobileRobot(0, 0, 0) {
+  //   std::cout << "default constructor" << '\n';
+  // }
 
-//   /**
-//    * @brief Construct a new Mobile Robot object
-//    *
-//    * @param x x coordinate
-//    * @param y y coordinate
-//    */
-//   MobileRobot(double x, double y) : MobileRobot(x, y, 0) {
-//     std::cout << "2-arg constructor" << '\n';
-//   }
+  // /**
+  //  * @brief Construct a new Mobile Robot object
+  //  *
+  //  * @param orientation orientation of the robot (in rad)
+  //  */
+  // MobileRobot(double orientation) : MobileRobot(0, 0, orientation) {
+  //   std::cout << "1-arg constructor" << '\n';
+  // }
 
-//   /**
-//    * @brief Construct a new Mobile Robot object
-//    * @note This constructor is the only one that does not delegate to another
-//    * @param x x coordinate
-//    * @param y y coordinate
-//    * @param orientation orientation of the robot (in rad)
-//    */
-//   MobileRobot(double x, double y, double orientation)
-//       : position_{std::make_pair(x, y)}, orientation_{orientation} {
-//     std::cout << "3-arg constructor" << '\n';
-//   }
+  // /**
+  //  * @brief Construct a new Mobile Robot object
+  //  *
+  //  * @param x x coordinate
+  //  * @param y y coordinate
+  //  */
+  // MobileRobot(double x, double y) : MobileRobot(x, y, 0) {
+  //   std::cout << "2-arg constructor" << '\n';
+  // }
+
+  // /**
+  //  * @brief Construct a new Mobile Robot object
+  //  * @note This constructor is the only one that does not delegate to another
+  //  * @param x x coordinate
+  //  * @param y y coordinate
+  //  * @param orientation orientation of the robot (in rad)
+  //  */
+  // MobileRobot(double x, double y, double orientation)
+  //     : position_{std::make_pair(x, y)}, orientation_{orientation} {
+  //   std::cout << "delegated constructor" << '\n';
+  // }
 
   // ==================== accessors ====================
   /**

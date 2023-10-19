@@ -8,7 +8,7 @@
 class A {
  public:
   A() { std::cout << "default ctor A\n"; }
-  A(int x) : v_{x} { std::cout << "param ctor A\n"; }
+  explicit A(int v) : v_{v} { std::cout << "param ctor A\n"; }
 
  private:
   int v_;
@@ -21,9 +21,9 @@ class A {
  */
 class B {
  public:
-  B() {
+  B(): a_{2} {
     std::cout << "default ctor B\n";
-    a_ = A(2);  // calls param ctor for A
+    // a_ = A(2);  // calls param ctor for A
   }
 
  private:
@@ -38,7 +38,7 @@ class B {
 // class C {
 //  public:
 //   C(int v) {
-//     v_ = v;
+    // v_ = v;
 //     std::cout << "v_: " << v_ << '\n';
 //   }
 
