@@ -1,4 +1,4 @@
-#include "friend_class.h"
+#include "friend_class/friend_class.h"
 
 //==============================================================================
 void MazeNavigation::MobileRobot::rotate(double angle) {

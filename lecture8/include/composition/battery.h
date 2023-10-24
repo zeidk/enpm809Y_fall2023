@@ -17,6 +17,7 @@ namespace MazeNavigation {
 class Battery {
  private:
   // ==================== attributes ====================
+  /*< Capacity*/
   double capacity_;
   double current_charge_;
   double voltage_;

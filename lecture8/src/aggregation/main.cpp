@@ -3,10 +3,11 @@
 #include <string>
 #include <vector>
 
-#include "aggregation.h"
+#include "aggregation/aggregation.h"
 
 int main() {
   auto robot = std::make_unique<MazeNavigation::MobileRobot>(1, 2, 0);
+  // auto sensor = std::make_unique<MazeNavigation::Sensor>("2D lidar");
   robot->add_sensor(std::make_unique<MazeNavigation::Sensor>("2D lidar"));
   robot->add_sensor(std::make_unique<MazeNavigation::Sensor>("3D lidar"));
 

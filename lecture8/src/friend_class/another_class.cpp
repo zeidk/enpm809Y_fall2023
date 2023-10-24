@@ -1,4 +1,4 @@
-#include "another_class.h"
+#include "friend_class/another_class.h"
 
 void AnotherClass::print_robot(const MazeNavigation::MobileRobot& robot){
     std::cout << "Position: " << robot.position_.first << ", "

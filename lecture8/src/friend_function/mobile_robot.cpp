@@ -1,4 +1,4 @@
-#include "friend_function.h"
+#include "friend_function/friend_function.h"
 
 //==============================================================================
 void print_robot(const MazeNavigation::MobileRobot& robot) {

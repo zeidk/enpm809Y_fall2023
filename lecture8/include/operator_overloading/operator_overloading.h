@@ -98,6 +98,9 @@ class MobileRobot {
 
   // ==================== operator overloading ====================
   MobileRobot operator+(const MobileRobot& other) const {
+    // other.position_.first = 4;
+    // this->position_.first = 3;
+
     auto x = this->position_.first + other.position_.first;
     auto y = this->position_.second + other.position_.second;
     double orientation = this->orientation_ + other.orientation_;
@@ -106,5 +109,6 @@ class MobileRobot {
   
   // ==================== friend functions ====================
   friend std::ostream& operator<<(std::ostream& os, const MobileRobot& robot);
+  friend std::istream& operator>>(std::istream& is, MobileRobot& robot);
 };  // class MobileRobot
 }  // namespace MazeNavigation

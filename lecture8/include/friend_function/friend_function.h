@@ -8,7 +8,7 @@ namespace MazeNavigation {
 class MobileRobot;
 }
 
-// friend function declaration
+//  function declaration
 void print_robot(const MazeNavigation::MobileRobot& robot);
 
 /**

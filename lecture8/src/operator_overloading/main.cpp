@@ -1,13 +1,18 @@
 #include <memory>
 
-#include "operator_overloading.h"
+#include "operator_overloading/operator_overloading.h"
 
 int main() {
-  auto robot = std::make_unique<MazeNavigation::MobileRobot>(1, 2, 0);
-  std::cout << (*robot) << '\n';
+  // auto robot = std::make_unique<MazeNavigation::MobileRobot>(1, 2, 0);
+  // auto robot2 = std::make_unique<MazeNavigation::MobileRobot>(1, 2, 35);
+  // std::cout << (*robot) << (*robot2)  << '\n';
 
-//   auto robot2 = std::make_unique<MazeNavigation::MobileRobot>(1, 2, 35);
-//   auto robot3 = std::make_unique<MazeNavigation::MobileRobot>(1, 2, 35);
-//   auto robot4 = (*robot2) + (*robot3);
-//   std::cout << robot4 << '\n';
+  // robot + robot2;
+
+    auto robot1 = std::make_unique<MazeNavigation::MobileRobot>(1,1);
+    // auto robot2 = std::make_unique<MazeNavigation::MobileRobot>(1,1);
+    // std::cin >> (*robot1) >> (*robot2);
+
+    std::cout << *robot1 << '\n';
+    // std::cout << *robot2;
 }

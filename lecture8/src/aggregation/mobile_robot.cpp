@@ -2,7 +2,7 @@
 #include <iostream>
 #include <thread>
 
-#include "aggregation.h"
+#include "aggregation/aggregation.h"
 
 void MazeNavigation::MobileRobot::add_sensor(
     std::unique_ptr<MazeNavigation::Sensor> sensor) {

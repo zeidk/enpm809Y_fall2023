@@ -1,4 +1,4 @@
-#include "sensor.h"
+#include "aggregation/sensor.h"
 #include <chrono>
 #include <iostream>
 #include <thread>
