@@ -4,9 +4,9 @@ class Base {
  public:
   int base_public_member;
   Base()
-      : base_public_member{0},
-        base_protected_member{0},
-        base_private_member{0} {}
+      : base_public_member{10},
+        base_protected_member{20},
+        base_private_member{30} {}
 
  protected:
   int base_protected_member;
@@ -15,7 +15,7 @@ class Base {
   int base_private_member;
 };
 
-class A : public Base {
+class DerivedPublic : public Base {
  public:
   void print_members() {
     std::cout << base_public_member << '\n';
@@ -23,10 +23,10 @@ class A : public Base {
     // std::cout << private_member << '\n';
   }
   private:
-    int a_private_member;
+    int x_;
 };
 
-class B : protected Base {
+class DerivedProtected : protected Base {
  public:
   void print_members() {
     std::cout << base_public_member << '\n';
@@ -35,10 +35,10 @@ class B : protected Base {
   }
 
  private:
-  int b_private_member;
+  int y_;
 };
 
-class C : private Base {
+class DerivedPrivate : private Base {
  public:
   void print_members() {
     std::cout << base_public_member << '\n';
@@ -47,5 +47,5 @@ class C : private Base {
   }
 
  private:
-  int c_private_member;
+  int z_;
 };

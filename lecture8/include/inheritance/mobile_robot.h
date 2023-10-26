@@ -4,7 +4,7 @@
 #include <utility>
 
 namespace RWA2 {
-class MobileRobot final{
+class MobileRobot{
  public:
   MobileRobot(double x, double y, double orientation)
       : position_{x, y}, orientation_{orientation} {
