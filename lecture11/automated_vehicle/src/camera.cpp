@@ -10,7 +10,7 @@ void automated_vehicle::Camera::camera_pub_data_cb() {
   rclcpp::Time time_now{this->now()};
   msg.header.stamp.nanosec = static_cast<uint32_t>(time_now.nanoseconds());
   msg.header.stamp.sec = time_now.seconds();
-  msg.header.frame_id = "camera" + "_frame";
+  msg.header.frame_id = "camera_frame";
 
   // fill out other entries
   msg.height = 480;

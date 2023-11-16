@@ -15,10 +15,6 @@ class LightSwitcherPub : public rclcpp::Node {
 
   private:
    rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher_;
-   /**
-    * @brief 
-    * 
-    */
    void light_status_timer_cb();
    rclcpp::TimerBase::SharedPtr timer_;
    bool light_status_ = true;

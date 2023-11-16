@@ -13,6 +13,10 @@ find_package(sensor_msgs REQUIRED)
 include_directories(include/automated_vehicle)
 
 #camera_driver
+add_executable(camera_driver src/camera.cpp)
+ament_target_dependencies(camera_driver rclcpp sensor_msgs)
+install(TARGETS camera_driver DESTINATION lib/${PROJECT_NAME})
+
 
 install(DIRECTORY include launch DESTINATION share/${PROJECT_NAME})
 
