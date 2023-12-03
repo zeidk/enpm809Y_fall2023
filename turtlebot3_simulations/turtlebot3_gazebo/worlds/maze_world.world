@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+    <world name="default">
+
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <scene>
+            <shadows>false</shadows>
+        </scene>
+
+        <gui fullscreen='0'>
+            <camera name='user_camera'>
+                <pose>-2.4268 7.4861 6.18945 0 0.6698 -1.35041</pose>
+                <view_controller>orbit</view_controller>
+                <projection_type>perspective</projection_type>
+            </camera>
+        </gui>
+
+        <physics type="ode">
+            <real_time_update_rate>1000.0</real_time_update_rate>
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1</real_time_factor>
+            <ode>
+                <solver>
+                    <type>quick</type>
+                    <iters>150</iters>
+                    <precon_iters>0</precon_iters>
+                    <sor>1.400000</sor>
+                    <use_dynamic_moi_rescaling>1</use_dynamic_moi_rescaling>
+                </solver>
+                <constraints>
+                    <cfm>0.00001</cfm>
+                    <erp>0.2</erp>
+                    <contact_max_correcting_vel>2000.000000</contact_max_correcting_vel>
+                    <contact_surface_layer>0.01000</contact_surface_layer>
+                </constraints>
+            </ode>
+        </physics>
+
+        <model name="maze_world">
+            <static>1</static>
+            <include>
+                <uri>model://maze_world</uri>
+            </include>
+        </model>
+
+        <include>
+            <name>turn_right_1</name>
+            <uri>model://aruco_marker_0</uri>
+            <pose>1.431726 0.999828 0.2 0 0 3.14</pose>
+            <scale>0.1 0.1 0.1</scale>
+        </include>
+
+        <include>
+            <name>turn_right_2</name>
+            <uri>model://aruco_marker_0</uri>
+            <pose>1.191131 -0.375581 0.2 0 0 1.57</pose>
+            <scale>0.1 0.1 0.1</scale>
+        </include>
+
+        <include>
+            <name>turn_left_1</name>
+            <uri>model://aruco_marker_1</uri>
+            <pose>-2.274434 -0.031094 0.2 0 0 0</pose>
+            <scale>0.1 0.1 0.1</scale>
+        </include>
+
+        <include>
+            <name>turn_left_2</name>
+            <uri>model://aruco_marker_1</uri>
+            <pose>-1.984094 -1.354246 0.2 0 0 1.57</pose>
+            <scale>0.1 0.1 0.1</scale>
+        </include>
+
+        <include>
+            <name>turn_right_3</name>
+            <uri>model://aruco_marker_0</uri>
+            <pose>0.444809 -0.861456 0.2 0 0 3.14159</pose>
+            <scale>0.1 0.1 0.1</scale>
+        </include>
+
+        <include>
+            <name>turn_right_4</name>
+            <uri>model://aruco_marker_0</uri>
+            <pose>0.211540 -2.376677 0.2 0 0 1.57</pose>
+            <scale>0.1 0.1 0.1</scale>
+        </include>
+
+        <include>
+            <name>stop</name>
+            <uri>model://aruco_marker_2</uri>
+            <pose>-4.465822 -1.989770 0.2 0 0 0</pose>
+            <scale>0.1 0.1 0.1</scale>
+        </include>
+
+
+        <!-- <include>
+            <name>battery</name>
+            <uri>model://battery</uri>
+            <pose>0 0.926746 0 0 0 0</pose>
+        </include> -->
+
+        <model name='stop_wall'>
+            <pose>-4.546374 -2.020978 0 0 -0 1.57</pose>
+            <link name='link'>
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.166667</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.166667</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.166667</izz>
+                    </inertia>
+                    <pose>0 0 0 0 -0 0</pose>
+                </inertial>
+                <collision name='collision'>
+                    <geometry>
+                        <box>
+                            <size>1 0.15 0.5</size>
+                        </box>
+                    </geometry>
+                    <max_contacts>10</max_contacts>
+                    <surface>
+                        <contact>
+                            <ode />
+                        </contact>
+                        <bounce />
+                        <friction>
+                            <torsional>
+                                <ode />
+                            </torsional>
+                            <ode />
+                        </friction>
+                    </surface>
+                </collision>
+                <visual name='visual'>
+                    <geometry>
+                        <box>
+                            <size>1 0.15 0.5</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                            <name>Gazebo/Red</name>
+                            <uri>file://media/materials/scripts/gazebo.material</uri>
+                        </script>
+                    </material>
+                </visual>
+                <self_collide>0</self_collide>
+                <enable_wind>0</enable_wind>
+                <kinematic>0</kinematic>
+            </link>
+        </model>
+
+    </world>
+</sdf>

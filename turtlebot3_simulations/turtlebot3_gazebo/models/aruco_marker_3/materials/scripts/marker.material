@@ -1,0 +1,15 @@
+material aruco_marker_3
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture marker_3.png
+        filtering anisotropic
+        max_anisotropy 16
+      }
+    }
+  }
+}
