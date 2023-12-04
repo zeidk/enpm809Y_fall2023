@@ -98,7 +98,7 @@
     <link name="logical_camera_link">
       <pose>0.0 0.0 0.2 0 -0.4 0</pose>
       <visual name="visual">
-        <pose>-0.02 0 -0.02 0 0 -1.5708</pose>
+        <pose>-0.02 0 0.05 0 0 -1.5708</pose>
         <geometry>
           <mesh>
             <uri>model://turtlebot3_common/meshes/camera.dae</uri>
