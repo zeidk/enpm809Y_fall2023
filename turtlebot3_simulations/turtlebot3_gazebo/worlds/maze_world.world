@@ -53,49 +53,49 @@
         <include>
             <name>turn_right_1</name>
             <uri>model://aruco_marker_0</uri>
-            <pose>1.431726 0.999828 0.2 0 0 3.14</pose>
+            <pose>1.431726 1.870602 0.2 0 0 3.14</pose>
             <scale>0.1 0.1 0.1</scale>
         </include>
 
         <include>
             <name>turn_right_2</name>
             <uri>model://aruco_marker_0</uri>
-            <pose>1.191131 -0.375581 0.2 0 0 1.57</pose>
+            <pose>0.454188 -0.375581 0.2 0 0 1.57</pose>
             <scale>0.1 0.1 0.1</scale>
         </include>
 
         <include>
             <name>turn_left_1</name>
             <uri>model://aruco_marker_1</uri>
-            <pose>-2.274434 -0.031094 0.2 0 0 0</pose>
+            <pose>-2.192628 0.234480 0.2 0 0 0</pose>
             <scale>0.1 0.1 0.1</scale>
         </include>
 
         <include>
             <name>turn_left_2</name>
             <uri>model://aruco_marker_1</uri>
-            <pose>-1.984094 -1.354246 0.2 0 0 1.57</pose>
+            <pose>-1.361128 -1.849961 0.2 0 0 1.57</pose>
             <scale>0.1 0.1 0.1</scale>
         </include>
 
         <include>
             <name>turn_right_3</name>
             <uri>model://aruco_marker_0</uri>
-            <pose>0.444809 -0.861456 0.2 0 0 3.14159</pose>
+            <pose>0.855389 -0.973694 0.2 0 0 3.14159</pose>
             <scale>0.1 0.1 0.1</scale>
         </include>
 
         <include>
             <name>turn_right_4</name>
             <uri>model://aruco_marker_0</uri>
-            <pose>0.211540 -2.376677 0.2 0 0 1.57</pose>
+            <pose>-0.210961 -3.943362 0.2 0 0 1.57</pose>
             <scale>0.1 0.1 0.1</scale>
         </include>
 
         <include>
             <name>stop</name>
             <uri>model://aruco_marker_2</uri>
-            <pose>-4.465822 -1.989770 0.2 0 0 0</pose>
+            <pose>-4.465822 -2.988823 0.2 0 0 0</pose>
             <scale>0.1 0.1 0.1</scale>
         </include>
 
@@ -107,7 +107,7 @@
         </include> -->
 
         <model name='stop_wall'>
-            <pose>-4.546374 -2.020978 0 0 -0 1.57</pose>
+            <pose>-4.547145 -2.990103 0 0 -0 1.57</pose>
             <link name='link'>
                 <inertial>
                     <mass>1</mass>

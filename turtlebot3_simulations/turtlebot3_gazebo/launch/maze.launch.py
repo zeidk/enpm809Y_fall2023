@@ -31,8 +31,10 @@ def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-    x_pose = LaunchConfiguration('x_pose', default='-4.0')
-    y_pose = LaunchConfiguration('y_pose', default='0.9')
+    # x_pose = LaunchConfiguration('x_pose', default='-4.0')
+    # y_pose = LaunchConfiguration('y_pose', default='0.9')
+    x_pose = LaunchConfiguration('x_pose', default='-3.0')
+    y_pose = LaunchConfiguration('y_pose', default='1.817740')
 
     world = os.path.join(
         get_package_share_directory('turtlebot3_gazebo'),

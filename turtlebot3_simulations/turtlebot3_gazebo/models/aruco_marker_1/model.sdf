@@ -20,7 +20,7 @@
         <pose>0.00005 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.0001 0.15 0.15</size>
+            <size>0.0001 0.100 0.100</size>
           </box>
         </geometry>
         <material>
@@ -36,7 +36,7 @@
         <pose>-0.00005 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.0001 0.15 0.15</size>
+            <size>0.0001 0.100 0.100</size>
           </box>
         </geometry>
       </visual>
@@ -44,7 +44,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.0001 0.15 0.15</size>
+            <size>0.0001 0.100 0.100</size>
           </box>
         </geometry>
       </collision>

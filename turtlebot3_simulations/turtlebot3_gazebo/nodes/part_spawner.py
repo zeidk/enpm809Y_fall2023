@@ -44,9 +44,11 @@ if __name__ == "__main__":
 
     part_spawner = PartSpawner()
     part_spawner.spawn_part("blue_battery_99", "battery", "blue", [
-                            0, 0.926746, 0.35], [0, 0, 0.78539816339])
+                            -0.569359, 1.834770, 0.35], [0, 0, 0.78539816339])
     part_spawner.spawn_part("green_battery_99", "battery",
-                            "green", [0.116440, -1.881520, 0.35], [0, 0, 1.57])
+                            "green", [-1.047505, -0.939857, 0.35], [0, -0.33, 1.57])
+    part_spawner.spawn_part("yellow_orange_99", "battery",
+                            "orange", [-2.277804, -3.026862, 0.35], [0, 0.33, 1.57])
 
     part_spawner.destroy_node()
     rclpy.shutdown()

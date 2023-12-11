@@ -208,7 +208,17 @@
     <origin xyz="0.0 0 0.12" rpy="0 0 0" />
   </joint>
 
-  <link name="logical_camera_link" />
+  <link name="logical_camera_link">
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://turtlebot3_gazebo/models/advanced_logical_camera/meshes/camera.dae"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="dark" />
+    </visual>
+    </link>
 
   <joint name="scan_joint" type="fixed">
     <parent link="base_link"/>

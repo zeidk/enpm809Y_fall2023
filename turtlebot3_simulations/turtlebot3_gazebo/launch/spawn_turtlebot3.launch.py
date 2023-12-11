@@ -35,6 +35,7 @@ def generate_launch_description():
     # Launch configuration variables specific to simulation
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
+    yaw_pose = LaunchConfiguration('yaw_pose', default='0.0')
 
     # Declare the launch arguments
     declare_x_position_cmd = DeclareLaunchArgument(
@@ -44,6 +45,10 @@ def generate_launch_description():
     declare_y_position_cmd = DeclareLaunchArgument(
         'y_pose', default_value='0.0',
         description='Specify namespace of the robot')
+    
+    declare_yaw_cmd = DeclareLaunchArgument(
+        'yaw_pose', default_value='3.14159',
+        description='Specify the yaw of the robot')
 
     start_gazebo_ros_spawner_cmd = Node(
         package='gazebo_ros',
@@ -63,6 +68,7 @@ def generate_launch_description():
     # Declare the launch options
     ld.add_action(declare_x_position_cmd)
     ld.add_action(declare_y_position_cmd)
+    ld.add_action(declare_yaw_cmd)
 
     # Add any conditioned actions
     ld.add_action(start_gazebo_ros_spawner_cmd)

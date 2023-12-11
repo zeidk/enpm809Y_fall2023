@@ -47,8 +47,10 @@ class ArucoNode(rclpy.node.Node):
         super().__init__('aruco_node')
 
         # Declare and read parameters
-        self.declare_parameter("marker_size", .0625)
-        self.declare_parameter("aruco_dictionary_id", "DICT_4X4_100")
+        # self.declare_parameter("marker_size", .0625)
+        self.declare_parameter("marker_size", 0.100)
+
+        self.declare_parameter("aruco_dictionary_id", "DICT_5X5_1000")
         self.declare_parameter("image_topic", "camera/image_raw")
         self.declare_parameter("camera_info_topic","camera/camera_info")
         self.declare_parameter("camera_frame", "camera_rgb_optical_frame")
@@ -90,7 +92,7 @@ class ArucoNode(rclpy.node.Node):
         self.distortion = None
 
         self.aruco_dictionary = cv2.aruco.getPredefinedDictionary(
-            cv2.aruco.DICT_4X4_100)
+            cv2.aruco.DICT_5X5_1000)
         self.aruco_parameters = cv2.aruco.DetectorParameters()
         self.bridge = CvBridge()
 
@@ -107,20 +109,18 @@ class ArucoNode(rclpy.node.Node):
             self.get_logger().warn("No camera info has been received!")
             return
 
-        cv_image = self.bridge.imgmsg_to_cv2(img_msg, desired_encoding='mono8')
+        cv_image = self.bridge.imgmsg_to_cv2(img_msg, desired_encoding='bgr8')
         markers = ArucoMarkers()
         pose_array = PoseArray()
-        if self.camera_frame is None:
-            markers.header.frame_id = self.info_msg.header.frame_id
-            pose_array.header.frame_id = self.info_msg.header.frame_id
-        else:
-            markers.header.frame_id = self.camera_frame
-            pose_array.header.frame_id = self.camera_frame
+        
+        markers.header.frame_id = "camera_rgb_optical_frame"
+        pose_array.header.frame_id = "camera_rgb_optical_frame"
 
         markers.header.stamp = img_msg.header.stamp
         pose_array.header.stamp = img_msg.header.stamp
 
-        corners, marker_ids, _ = cv2.aruco.detectMarkers(cv_image,
+        gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
+        corners, marker_ids, _ = cv2.aruco.detectMarkers(gray,
                                                                 self.aruco_dictionary,
                                                                 parameters=self.aruco_parameters)
         if marker_ids is not None:
