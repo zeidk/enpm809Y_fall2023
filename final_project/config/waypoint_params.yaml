@@ -1,0 +1,50 @@
+your_node_name:
+  ros__parameters:
+    aruco_0:
+      wp1:
+        type: 'battery'
+        color: 'green'
+      wp2:
+        type: 'battery'
+        color: 'red'
+      wp3:
+        type: 'battery'
+        color: 'orange'
+      wp4:
+        type: 'battery'
+        color: 'purple'
+      wp5:
+        type: 'battery'
+        color: 'blue'
+    aruco_1:
+      wp1:
+        type: 'battery'
+        color: 'blue'
+      wp2:
+        type: 'battery'
+        color: 'green'
+      wp3:
+        type: 'battery'
+        color: 'orange'
+      wp4:
+        type: 'battery'
+        color: 'red'
+      wp5:
+        type: 'battery'
+        color: 'purple'
+    aruco_2:
+      wp1:
+        type: 'battery'
+        color: 'red'
+      wp2:
+        type: 'battery'
+        color: 'purple'
+      wp3:
+        type: 'battery'
+        color: 'green'
+      wp4:
+        type: 'battery'
+        color: 'orange'
+      wp5:
+        type: 'battery'
+        color: 'blue'
