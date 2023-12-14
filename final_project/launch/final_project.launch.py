@@ -28,7 +28,6 @@ def launch_setup(context, *args, **kwargs):
     world_file_name = 'final.world'
     world_path = os.path.join(pkg_share, 'worlds', world_file_name)
 
-
     user_config_path = os.path.join(
         pkg_share, 'config', "sensors.yaml")
 
@@ -58,7 +57,6 @@ def launch_setup(context, *args, **kwargs):
         ]
     )
 
-
     # Environment Startup
     environment_startup = Node(
         package='final_project',
@@ -69,21 +67,70 @@ def launch_setup(context, *args, **kwargs):
             {"use_sim_time": True},
         ],
     )
-    
+
     part_spawner_cmd = Node(
         package='final_project',
         executable='part_spawner.py',
         output='screen'
     )
-    
+
     start_aruco_detection_node_cmd = Node(
         package='ros2_aruco',
         executable='aruco_node',
         output='screen')
     
+    map_path = os.path.join(
+        get_package_share_directory('final_project'),
+        'maps',
+        'final2_map.yaml')
+
+    # Navigation2 node
+    turtlebot3_navigation2_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [FindPackageShare("turtlebot3_navigation2"),
+             "/launch", "/navigation2.launch.py"]
+        ),
+        launch_arguments={
+            'use_sim_time': 'true',
+            'map': map_path,
+        }.items()
+    )
+
+    # static_broadcaster = Node(
+    #     package='final_project',
+    #     executable='object_tf_broadcaster.py',
+    #     output='screen')
+
+    static_transform_cmd = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        output='screen',
+        arguments=[
+            '0',  # x
+            '0',  # y
+            '0',  # z
+            '0',  # r
+            '0',  # p
+            '0',  # y
+            'world',  # frame_id
+            'map'   # child_frame_id
+        ]
+        # arguments=[
+        #     '1.61816',  # x
+        #     '1.01542',  # y
+        #     '0.0183318',  # z
+        #     '0.00229583',  # qx
+        #     '0.00238136',  # qy
+        #     '-0.723482',  # qz
+        #     '-0.690335',  # qw
+        #     'world',  # frame_id
+        #     'map'   # child_frame_id
+        # ]
+    )
+
     launch_file_dir = os.path.join(
         get_package_share_directory('final_project'), 'launch')
-    
+
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(launch_file_dir, 'robot_state_publisher.launch.py')
@@ -104,12 +151,14 @@ def launch_setup(context, *args, **kwargs):
 
     nodes_to_start = [
         gazebo,
-        sensor_tf_broadcaster,
         environment_startup,
         part_spawner_cmd,
         start_aruco_detection_node_cmd,
         robot_state_publisher_cmd,
-        spawn_turtlebot_cmd
+        spawn_turtlebot_cmd,
+        turtlebot3_navigation2_cmd,
+        sensor_tf_broadcaster,
+        static_transform_cmd
     ]
 
     return nodes_to_start

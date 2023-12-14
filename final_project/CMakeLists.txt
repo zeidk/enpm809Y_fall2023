@@ -69,6 +69,7 @@ install(DIRECTORY
   launch
   models
   worlds
+  maps
   DESTINATION share/${PROJECT_NAME}/
 )
 
@@ -81,6 +82,7 @@ install(PROGRAMS
   nodes/environment_startup_node.py
   nodes/sensor_tf_broadcaster.py
   nodes/part_spawner.py
+  nodes/object_tf_broadcaster.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
