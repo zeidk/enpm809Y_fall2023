@@ -50,7 +50,7 @@ if __name__ == "__main__":
     part_spawner.spawn_part("red_battery_99", "battery",
                             "red", [6.235279, -2.351816, 1], [0, 0, -1.57])
     part_spawner.spawn_part("orange_battery_99", "battery",
-                            "orange", [6.432782, 2.050488, 1], [0, 0, 0])
+                            "orange", [6.338, 1.335, 0.38], [0, 0, 0])
     part_spawner.spawn_part("purple_battery_99", "battery",
                             "purple", [4.269588, 0.469212, 1], [0, 0.0, -0.78539816339])
 
